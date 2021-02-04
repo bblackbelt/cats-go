@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cat
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      deployment: cat
+  template:
+    metadata:
+      labels:
+        deployment: cat
+    spec:
+      containers:
+        - name: cat
+          image: gcr.io/PROJECT_ID/IMAGE:TAG
+          ports:
+            - containerPort: 9090
